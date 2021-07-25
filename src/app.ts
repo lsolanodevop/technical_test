@@ -2,6 +2,7 @@ const userSearchButton = document.getElementById("userSearchButton")! as HTMLInp
 const userSearchInput = document.getElementById("userSearchInput")! as HTMLInputElement;
 const userCardData = document.getElementById("card1List")! as HTMLUListElement;
 const userImage = document.getElementById("profileImg")! as HTMLImageElement;
+const refreshButton = document.getElementById("refresh")! as HTMLInputElement;
 let c: any;
 const firstOne = document.createElement("li");
 const secondOne = document.createElement("li");
@@ -54,7 +55,6 @@ userSearchButton.addEventListener("click", function (e: Event) {
   }
 });
 
-// function showParam(element:HTMLLIElement,header: string, data: object) {
-//         element.innerText = header + " " + data.names + ;
-//         userCardData.append(element); 
-// }
+refreshButton.addEventListener("click", function (e: Event) {
+  window.location.reload();
+});

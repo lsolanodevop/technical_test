@@ -7,3 +7,4 @@
 # Sixth step: Make the first api call using node
 # Seventh step: Return the data to the web
 # Eigthth step: Render the data in the web
+# Dummy Users for testing the calls, mariiacao, lucasgoyeche, seba60, andresserron, leonardosolanohw

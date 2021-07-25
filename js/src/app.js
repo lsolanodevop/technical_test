@@ -3,6 +3,7 @@ const userSearchButton = document.getElementById("userSearchButton");
 const userSearchInput = document.getElementById("userSearchInput");
 const userCardData = document.getElementById("card1List");
 const userImage = document.getElementById("profileImg");
+const refreshButton = document.getElementById("refresh");
 let c;
 const firstOne = document.createElement("li");
 const secondOne = document.createElement("li");
@@ -54,7 +55,6 @@ userSearchButton.addEventListener("click", function (e) {
         console.log("Please Input a value");
     }
 });
-// function showParam(element:HTMLLIElement,header: string, data: object) {
-//         element.innerText = header + " " + data.names + ;
-//         userCardData.append(element); 
-// }
+refreshButton.addEventListener("click", function (e) {
+    window.location.reload();
+});
