@@ -34,9 +34,6 @@ app.get("/user/:user", (req, res, callback) => {
                 links: response.body.person.links,
                 location: response.body.person.location,
                 summary: response.body.person.summaryOfBio,
-                stats: response.body.stats,
-                habilities: response.body.strengths,
-                interest: response.body.interests,
                 experiences: response.body.experiences
             };
             // console.log("This is a " +JSON.stringify(personalObj));

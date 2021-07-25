@@ -34,9 +34,6 @@ app.get("/user/:user", (req:any, res:any, callback:any) => {
         links: response.body.person.links,
         location: response.body.person.location,
         summary: response.body.person.summaryOfBio,
-        stats: response.body.stats,
-        habilities: response.body.strengths,
-        interest: response.body.interests,
         experiences: response.body.experiences
   
       }

@@ -76,3 +76,26 @@ hr
     font-family: 'Big Shoulders Text', cursive;
     font-weight: 100;
 }
+
+.ul{
+    padding: 5%;
+}
+
+.cardOne{
+margin-top: 1.25rem;
+margin-bottom: 1.25rem;
+font-size: 1.75rem;
+font-weight: bold;
+}
+.cardTwo{
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    font-weight:600;
+    }
+
+.restCards{
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.15rem;
+}
