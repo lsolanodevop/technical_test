@@ -1,6 +1,10 @@
 const userSearchButton = document.getElementById("userSearchButton")! as HTMLInputElement;
 const userSearchInput = document.getElementById("userSearchInput")! as HTMLInputElement;
+const userCardData = document.getElementById("card1List")! as HTMLUListElement;
+const userImage = document.getElementById("profileImg")! as HTMLImageElement;
 let c: any;
+const firstOne = document.createElement("li");
+const secondOne = document.createElement("li");
 //Creating a button to call the api
 //taking the info of the user input to send it
 userSearchButton.addEventListener("click", function (e: Event) {
@@ -14,92 +18,31 @@ userSearchButton.addEventListener("click", function (e: Event) {
       }
     }).then(res => res.json())
       .then(data => {
-        console.log(data.experiences);
+        // showParam(sumUser, "Names ", data);
+        // showParam(sumUser, "Title", data);
+        // userCardData.appendChild(sumUser);
+        firstOne.innerText = data.name + " " + data.professionalHeadline;
+        userCardData.append(firstOne);
+        secondOne.innerText = data.summary;
+        userImage.removeAttribute("hidden");
+        userImage.src = data.picture;
+        // showParam(listUser, "Title", data.professionalHeadline);
+        // showParam(listUser, "Names", data.name);
+        // showParam(listUser, "Summary", data.summary);
+        // userCardData.append("Title ");
+         userCardData.append(secondOne);
+
+        // title = data.professionalHeadline,
+        // picture = data.picture,
+        // name = data.name,
+        // summary = data.summary
       });
   } else {
     console.log("Please Input a value");
   }
 });
 
-export interface Welcome {
-  professionalHeadline: string;
-  picture:              string;
-  name:                 string;
-  links:                Link[];
-  location:             Location;
-  summary:              string;
-  stats:                Stats;
-  habilities:           Hability[];
-  interest:             Interest[];
-  experiences:          Experience[];
-}
-
-export interface Experience {
-  id:               string;
-  category:         string;
-  name:             string;
-  organizations:    Organization[];
-  responsibilities: string[];
-  fromMonth:        string;
-  fromYear:         string;
-  remote:           boolean;
-  additionalInfo:   string;
-  highlighted:      boolean;
-  weight:           number;
-  verifications:    number;
-  recommendations:  number;
-  media:            any[];
-  rank:             number;
-  toMonth?:         string;
-  toYear?:          string;
-}
-
-export interface Organization {
-  id:       number;
-  name:     string;
-  publicId: string;
-  picture?: string;
-}
-
-export interface Hability {
-  id:              string;
-  code:            number;
-  name:            string;
-  weight:          number;
-  recommendations: number;
-  media:           any[];
-  supra:           boolean;
-  created:         Date;
-}
-
-export interface Interest {
-  id:      string;
-  code:    number;
-  name:    string;
-  media:   any[];
-  created: Date;
-}
-
-export interface Link {
-  id:      string;
-  name:    string;
-  address: string;
-}
-
-export interface Location {
-  name:           string;
-  shortName:      string;
-  country:        string;
-  latitude:       number;
-  longitude:      number;
-  timezone:       string;
-  timezoneOffSet: number;
-  placeId:        string;
-}
-
-export interface Stats {
-  jobs:      number;
-  education: number;
-  strengths: number;
-  interests: number;
-}
+// function showParam(element:HTMLLIElement,header: string, data: object) {
+//         element.innerText = header + " " + data.names + ;
+//         userCardData.append(element); 
+// }

@@ -2,7 +2,8 @@ const express = require("express");
 const url = require("url");
 const queryString = require("querystring");
 const postman = require("postman-request");
-
+const pdf = require("pdf-creator-node");
+const fs = require("fs"); 
 const app = express();
 
 app.use(function (req:any, res:any, next:any) {
