@@ -79,6 +79,25 @@ app.get("/job/:jobid", (req:any, res:any, callback:any) => {
   });
 });
 
+app.post("/advanced/:search", async(request:any, response:any) => {
+  const size = request.query.size;
+  const offset = request.query.offset;
+  const requestedBody = JSON.stringify(request.body);
+  console.log(requestedBody);
+  let res;
+  res = await postman(`https://search.torre.co/people/_search/size=20&offset=1`, {
+        method: 'POST',
+        body: requestedBody,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+  const data = await res.json();
+  // console.log(data);
+})
+
+
+
 app.listen(4000, () => {
   console.log("Ready to rock");
 });

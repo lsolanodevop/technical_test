@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const express = require("express");
 const url = require("url");
 const queryString = require("querystring");
@@ -76,6 +85,22 @@ app.get("/job/:jobid", (req, res, callback) => {
         // return personalObj;
     });
 });
+app.post("/advanced/:search", (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+    const size = request.query.size;
+    const offset = request.query.offset;
+    const requestedBody = JSON.stringify(request.body);
+    console.log(requestedBody);
+    let res;
+    res = yield postman(`https://search.torre.co/people/_search/size=20&offset=1`, {
+        method: 'POST',
+        body: requestedBody,
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+    });
+    const data = yield res.json();
+    // console.log(data);
+}));
 app.listen(4000, () => {
     console.log("Ready to rock");
 });
